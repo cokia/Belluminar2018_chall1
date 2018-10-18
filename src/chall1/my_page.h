@@ -6,8 +6,9 @@
 #include <unistd.h>
 #include <termios.h>
 
-#define UP_KEY 72
-#define DOWN_KEY 80
+#define ENTER 10
+#define UP_KEY 65
+#define DOWN_KEY 66
 
 struct pointer{
 	int x;
