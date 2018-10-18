@@ -1,19 +1,4 @@
-#include <stdio.h>
-#include <string.h>
-#include<unistd.h>
-#include<termios.h>
-#define UP_KEY 72
-#define DOWN_KEY 80
-
-struct pointer{
-	int x;
-	int y;
-};
-struct user_struct{
-	char id[50];
-	char pw[50];
-	char intro[500];
-};
+#include "my_page.h"
 
 void gotoxy(int x,int y)
 {
@@ -27,14 +12,14 @@ int getch()
 	int c;
 	struct termios oldattr, newattr;
 
-	tcgetattr(STDIN_FILENO, &oldattr);           // ¿¿ ¿¿¿ ¿¿ ¿¿
+	tcgetattr(STDIN_FILENO, &oldattr);           // ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½
 	newattr = oldattr;
-	newattr.c_lflag &= ~(ICANON | ECHO);         // CANONICAL¿ ECHO ¿
-	newattr.c_cc[VMIN] = 1;                      // ¿¿ ¿¿ ¿¿ ¿¿ 1¿ ¿¿
-	newattr.c_cc[VTIME] = 0;                     // ¿¿ ¿¿ ¿¿ ¿¿¿ 0¿¿ ¿¿
-	tcsetattr(STDIN_FILENO, TCSANOW, &newattr);  // ¿¿¿¿ ¿¿ ¿¿
-	c = getchar();                               // ¿¿¿ ¿¿ ¿¿
-	tcsetattr(STDIN_FILENO, TCSANOW, &oldattr);  // ¿¿¿ ¿¿¿¿ ¿¿
+	newattr.c_lflag &= ~(ICANON | ECHO);         // CANONICALï¿½ ECHO ï¿½
+	newattr.c_cc[VMIN] = 1;                      // ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ 1ï¿½ ï¿½ï¿½
+	newattr.c_cc[VTIME] = 0;                     // ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ 0ï¿½ï¿½ ï¿½ï¿½
+	tcsetattr(STDIN_FILENO, TCSANOW, &newattr);  // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½
+	c = getchar();                               // ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½
+	tcsetattr(STDIN_FILENO, TCSANOW, &oldattr);  // ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
 	return c;
 }
  
@@ -70,56 +55,48 @@ int my_page(struct user_struct user){
 	return 1;
 }
 
-int main(){
-	struct user_struct user;
-	strcpy(user.id, "Rado");
-	strcpy(user.intro, "i'm rado");
-	my_page(user);
-	return 0;
-}
-
 /*
-[¶óµµÈÆ] [¿ÀÈÄ 11:43]
+[ï¿½ï¿½ï¿½ï¿½] [ï¿½ï¿½ï¿½ï¿½ 11:43]
 1. start page
    -scoreboard
-   -login       ->    2. my page·Î
+   -login       ->    2. my pageï¿½ï¿½
    -register
 
 2. mypage
    attribute{
-      ´Ð³×ÀÓ
-      ÀÚ±â¼Ò°³   
+      ï¿½Ð³ï¿½ï¿½ï¿½
+      ï¿½Ú±ï¿½Ò°ï¿½   
    }
-   -°ÔÀÓ ½ÃÀÛÇÏ±â -> 3. game page·Î
-   -³ª°¡±â
-   -ÀúÀåÇÏ±â
+   -ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ -> 3. game pageï¿½ï¿½
+   -ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+   -ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½
    
  3. game page
-   ¸ÞÀÎÄ³¸¯ÅÍ{
-      ÁÂÇ¥
+   ï¿½ï¿½ï¿½ï¿½Ä³ï¿½ï¿½ï¿½ï¿½{
+      ï¿½ï¿½Ç¥
       hp
-      ½ºÅ²
-      °ø°Ý·Â
+      ï¿½ï¿½Å²
+      ï¿½ï¿½ï¿½Ý·ï¿½
    
-      -±â´É
-      ÀÌµ¿
-      °ø°Ý
+      -ï¿½ï¿½ï¿½
+      ï¿½Ìµï¿½
+      ï¿½ï¿½ï¿½ï¿½
    }
    stage 1      
       Monster{
-         ÁÂÇ¥
-         °ø°Ý·Â
-         Ã¼·Â
+         ï¿½ï¿½Ç¥
+         ï¿½ï¿½ï¿½Ý·ï¿½
+         Ã¼ï¿½ï¿½
       }
    stage 2
       Monster{
-         ÁÂÇ¥
-         °ø°Ý·Â
-         Ã¼·Â
+         ï¿½ï¿½Ç¥
+         ï¿½ï¿½ï¿½Ý·ï¿½
+         Ã¼ï¿½ï¿½
       }
-   ÃÖÁ¾º¸½º{
-      ÁÂÇ¥
-      °ø°Ý·Â
-      Ã¼·Â
+   ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½{
+      ï¿½ï¿½Ç¥
+      ï¿½ï¿½ï¿½Ý·ï¿½
+      Ã¼ï¿½ï¿½
    }
    */
