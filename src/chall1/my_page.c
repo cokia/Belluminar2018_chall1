@@ -2,19 +2,7 @@
 #include <string.h>
 #include<unistd.h>
 #include<termios.h>
-#define UP_KEY 65
-#define DOWN_KEY 66
-#define ENTER 10
-
-struct pointer{
-	int x;
-	int y;
-};
-struct user_struct{
-	char id[50];
-	char pw[50];
-	char intro[500];
-};
+#include "my_page.h"
 
 void gotoxy(int x,int y)
 {
@@ -72,12 +60,3 @@ int my_page(struct user_struct user){
 	}
 	return 1;
 }
-
-int main(){
-	struct user_struct user;
-	strcpy(user.id, "Rado");
-	strcpy(user.intro, "i'm rado");
-	my_page(user);
-	return 0;
-}
-
