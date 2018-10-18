@@ -1,12 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <stdbool.h>
-
-struct user_struct {
-   char *id;
-   char *pw;
-   char *intro;
-};
+#include "users.h"
 
 struct user_struct login_user(char *id, char *pw){
     // returns user structure if query is available
@@ -56,4 +52,29 @@ struct user_struct login_user(char *id, char *pw){
         exit(0);
     }
     return current_user;
+}
+
+bool register_user(char *id, char *pw, char *intro){
+    // returns true if successfuly registered user else return false
+    FILE *user_db = fopen("user_db.txt", "r");
+    if (user_db == NULL) { // failed to open file 
+        printf("user_db.txt: File not found\n");
+        exit(0);
+    }
+    char *temp[100];
+    struct user_struct current_user;
+    while(fgets(temp, sizeof temp, user_db) != NULL){
+        // user_db.txt => id:pw:intro
+        char *ch;
+        ch = strtok(temp, ":");
+        if (strcmp(ch, id) == 0){ // user with duplicate id exists
+            fclose(user_db);
+            return false;
+        }
+    }
+    fclose(user_db);
+    user_db = fopen("user_db.txt", "a");
+    fprintf(user_db, "%s:%s:%s\n", id, pw, intro);
+    fclose(user_db);
+    return true;
 }
