@@ -36,9 +36,12 @@ void print_scoreboard(){
 
 bool save_score(char *id, int score){
     // save the score of user with id => append to score_db.txt
-    
-}
-
-int main(){
-    print_scoreboard();
+    // returns true if successfuly saved score else return false
+    FILE *score_db = fopen("score_db.txt", "a");
+    if (score_db == NULL) { // failed to open file 
+        printf("score_db.txt: File not found\n");
+        return false;
+    }
+    fprintf(score_db, "%s:%d\n", id, score);
+    fclose(score_db);
 }
