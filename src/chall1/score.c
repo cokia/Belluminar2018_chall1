@@ -9,7 +9,7 @@ struct rank_struct {
    int score;
 };
 
-int compare (const void *s1, const void *s2){
+int compare_rank (const void *s1, const void *s2){
     struct rank_struct *r1 = (struct rank_struct *)s1;
     struct rank_struct *r2 = (struct rank_struct *)s2;
     return r2->score - r1->score;
@@ -62,7 +62,7 @@ void print_scoreboard(){
     }
     
     // sort scoreboard
-    qsort(scoreboard, scoreboard_idx, sizeof(struct rank_struct), compare);
+    qsort(scoreboard, scoreboard_idx, sizeof(struct rank_struct), compare_rank);
     for (int i = 0; i < scoreboard_idx; i++){
         struct user_struct user = query_user(scoreboard[i].id);
         printf("[%02d]", i + 1);
