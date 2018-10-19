@@ -16,8 +16,16 @@ int compare (const void *s1, const void *s2){
 }
 
 void print_scoreboard(){
-    printf("===== SCOREBOARD =====\n");
     // prints the current scoreboard
+
+    // print title
+    for (int i = 0; i <= 30; i++) printf("=");
+    printf(" SCOREBOARD ");
+    for (int i = 0; i < 30; i++) printf("=");
+    printf("\nRANK%10s%10s%49s\n", "ID", "SCORE", "INTRO");
+    for (int i = 0; i <= 72; i++) printf("-");
+    printf("\n");
+
     // open score_db.txt and render one by one (use login_user() to get user infomation)
     FILE *score_db = fopen("score_db.txt", "r");
     if (score_db == NULL) { // failed to open file 
@@ -57,7 +65,10 @@ void print_scoreboard(){
     qsort(scoreboard, scoreboard_idx, sizeof(struct rank_struct), compare);
     for (int i = 0; i < scoreboard_idx; i++){
         struct user_struct user = query_user(scoreboard[i].id);
-        printf("[%d] %s - %d - %s", i + 1, scoreboard[i].id, scoreboard[i].score, user.intro);
+        printf("[%02d]", i + 1);
+        printf("%10s", scoreboard[i].id);
+        printf("%10d", scoreboard[i].score);
+        printf("%50s", user.intro);
     }
     // printing user infomation has to wait a little more :(
     fclose(score_db);
@@ -73,4 +84,8 @@ bool save_score(char *id, int score){
     }
     fprintf(score_db, "%s:%d\n", id, score);
     fclose(score_db);
+}
+
+int main(){
+    print_scoreboard();
 }
