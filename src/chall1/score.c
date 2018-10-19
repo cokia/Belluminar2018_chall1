@@ -3,11 +3,7 @@
 #include <string.h>
 #include <stdbool.h>
 #include "users.h"
-
-struct rank_struct {
-   char *id;
-   int score;
-};
+#include "score.h"
 
 int compare_rank (const void *s1, const void *s2){
     struct rank_struct *r1 = (struct rank_struct *)s1;
@@ -84,8 +80,4 @@ bool save_score(char *id, int score){
     }
     fprintf(score_db, "%s:%d\n", id, score);
     fclose(score_db);
-}
-
-int main(){
-    print_scoreboard();
 }
