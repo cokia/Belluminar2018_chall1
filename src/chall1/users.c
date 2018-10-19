@@ -59,12 +59,13 @@ bool register_user(char *id, char *pw, char *intro){
     FILE *user_db = fopen("user_db.txt", "r");
     if (user_db == NULL) { // failed to open file 
         printf("user_db.txt: File not found\n");
-        exit(0);
+        // exit(0);
+        return false;
     }
     char *temp[100];
     struct user_struct current_user;
     while(fgets(temp, sizeof temp, user_db) != NULL){
-        // user_db.txt => id:pw:intro
+        // user_db.txt <= id:pw:intro
         char *ch;
         ch = strtok(temp, ":");
         if (strcmp(ch, id) == 0){ // user with duplicate id exists
