@@ -56,7 +56,8 @@ void print_scoreboard(){
     // sort scoreboard
     qsort(scoreboard, scoreboard_idx, sizeof(struct rank_struct), compare);
     for (int i = 0; i < scoreboard_idx; i++){
-        printf("[%d] %s - %d\n", i + 1, scoreboard[i].id, scoreboard[i].score);
+        struct user_struct user = query_user(scoreboard[i].id);
+        printf("[%d] %s - %d - %s", i + 1, scoreboard[i].id, scoreboard[i].score, user.intro);
     }
     // printing user infomation has to wait a little more :(
     fclose(score_db);

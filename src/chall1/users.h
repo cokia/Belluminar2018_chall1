@@ -12,6 +12,8 @@ struct user_struct {
    char *intro;
 };
 
+struct user_struct query_user(char *id);
+
 struct user_struct login_user(char *id, char *pw);
 
 bool register_user(char *id, char *pw, char *intro);
