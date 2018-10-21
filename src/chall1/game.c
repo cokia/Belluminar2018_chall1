@@ -16,7 +16,7 @@ int getch()
 	return c;
 }
 
-static inline void drawSpaceShip(unsigned int x)
+static inline void drawSpaceShip(int x)
 {
         unsigned int width, height, blank;
         for(height = 0; height < STATIC_SPACE_SHIP_HEIGHT; height++){
@@ -33,24 +33,26 @@ static inline void drawSpaceShip(unsigned int x)
                                 printf(" ");
                         }
                 }
-        puts(" ");
+                puts(" ");
         }
 }
+
 int main()
 {
-        unsigned int x = STATIC_MAP_WIDTH / 2;
+        int x = STATIC_MAP_WIDTH / 2;
         while(1){
                 unsigned int inputKeyboard;
                 inputKeyboard = getch();
                 switch(inputKeyboard){
                         case 67: {
                                 system("clear");
-                                drawSpaceShip(x = x + 1);
+                                drawSpaceShip(++x);
                                 break;
                         }
                         case 68: {
                                 system("clear");
-                                drawSpaceShip(x = x - 1);
+                                if (x > 0)
+                                        drawSpaceShip(--x);
                                 break;
                         }
                 }
