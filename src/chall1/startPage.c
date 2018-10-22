@@ -1,6 +1,6 @@
 #include "main.h"
 #include "users.h"
-
+#include "startPage.c"
 struct user_struct loginPage(){
 	char id[25];
 	char pw[50];
@@ -42,12 +42,16 @@ struct user_struct startPage(){
 	scanf("%d",&selNum);
 	if(selNum == 1)
 	{
-		return loginPage();
+		struct user_struct user = loginPage();
+		printf("start page\n");
+		printf("%s\n",user.intro);
+		return user;
 	}
 	else if(selNum == 2)
 	{
 		rgPage();
-		return startPage();
+		struct user_struct user = startPage();
+		return user;
 	}
 	else {
 		struct user_struct user;

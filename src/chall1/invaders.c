@@ -282,7 +282,7 @@ int invaderGame() {
          tank.c = 0;     
    }
    
-   gameover(win);
+   //gameover(win);
    endwin();
    return score;
 }

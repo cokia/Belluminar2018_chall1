@@ -1,7 +1,7 @@
 #include "main.h"
+#include "users.h"
 
 int main(){
-	startPage();
 	struct user_struct user;
 	char id[25];
 	char intro[500];
@@ -10,5 +10,7 @@ int main(){
 	strcpy(user.id, "Rado");
 	strcpy(user.intro, "i'm rado");
 	my_page(user);
+	int score = invaderGame();
+	printf("score = %d\n", score);
 	return 0;
 }
