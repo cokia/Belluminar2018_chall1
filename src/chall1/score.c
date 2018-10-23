@@ -11,7 +11,7 @@ struct rank_struct {
    // change the define order if needed
 };
 
-struct rank_struct scoreboard[100];
+struct rank_struct scoreboard[54];
 int scoreboard_idx = 0;
 
 int compare_rank (const void *s1, const void *s2){
@@ -36,27 +36,27 @@ void print_scoreboard(){
     // prints the current scoreboard
     for (int i = 0; i < scoreboard_idx; i++){
         printf("[%02d]", i + 1);
-        printf("%10s", scoreboard[i].name);
+        printf("%20s", scoreboard[i].name);
         printf("%10d", scoreboard[i].score);
-        printf("%50s\n", scoreboard[i].intro);
+        printf("%30s\n", scoreboard[i].intro);
     }
 }
 
-bool save_score(char *name, int score, char *intro){
-    strcpy(scoreboard[scoreboard_idx].name, name);
+bool save_score(int score){
+    printf("Input name : ");
+    fflush(stdout);
+    read(0, scoreboard[scoreboard_idx].name, 200);
+    scoreboard[scoreboard_idx].name[strcspn(scoreboard[scoreboard_idx].name, "\n")] = '\0';
     scoreboard[scoreboard_idx].score = score;
-    strcpy(scoreboard[scoreboard_idx].intro, intro);
+    printf("Input comment : ");
+    fflush(stdout);
+    read(0, scoreboard[scoreboard_idx].intro, 300);
+    scoreboard[scoreboard_idx].intro[strcspn(scoreboard[scoreboard_idx].intro, "\n")] = '\0';
     scoreboard_idx++;
     return true;
 }
 
 int main(){
-    save_score("hanukoon", 15000, "i_am_god_hacker");
-    save_score("junhoyeo", 1000, "Hello :) I'm newbie~");
-    save_score("fromis_9", 99999, "(grin)");
-    /*
-    for (int i = 0; i < scoreboard_idx; i++)
-        printf("%s : %d : %s\n", scoreboard[i].name, scoreboard[i].score, scoreboard[i].intro);
-    */
+    save_score(1000);
     print_scoreboard();
 }
