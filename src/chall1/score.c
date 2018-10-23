@@ -53,7 +53,7 @@ bool save_score(char *name, int score, char *intro){
 int main(){
     save_score("hanukoon", 15000, "i_am_god_hacker");
     save_score("junhoyeo", 1000, "Hello :) I'm newbie~");
-    save_score("9host1st", 99999, "(grin)");
+    save_score("fromis_9", 99999, "(grin)");
     /*
     for (int i = 0; i < scoreboard_idx; i++)
         printf("%s : %d : %s\n", scoreboard[i].name, scoreboard[i].score, scoreboard[i].intro);
