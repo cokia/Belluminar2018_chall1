@@ -35,8 +35,6 @@ int my_page(struct user_struct user){
 	gotoxy(6,6);
 	printf(">Start Game\n");
 	gotoxy(6,7);
-	printf(" Save\n");
-	gotoxy(6,8);
 	printf(" Quit\n");
 	int select = 1;
 	struct pointer this_pointer;
@@ -50,7 +48,7 @@ int my_page(struct user_struct user){
 		printf("%d",key_rst);
 		if(key_rst == ENTER) return select;	
 		if(key_rst == UP_KEY && select != 1) select-=1;
-		else if(key_rst == DOWN_KEY && select != 3) select+=1;
+		else if(key_rst == DOWN_KEY && select != 2) select+=1;
 		gotoxy(this_pointer.x,this_pointer.y);
 		printf(" ");
 		this_pointer.y = select+5;
