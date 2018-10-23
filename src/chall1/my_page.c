@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
-#include<unistd.h>
-#include<termios.h>
+#include <unistd.h>
+#include <termios.h>
 #include "my_page.h"
 
 void gotoxy(int x,int y)
