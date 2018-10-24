@@ -1,7 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <stdbool.h>
+
 #include "score.h"
 #include "my_page.h"
 
@@ -18,11 +15,11 @@ void print_scoreboard(){
     clear();
 
     // print title
-    for (int i = 0; i <= 30; i++) printf("=");
+    for (int i = 0; i < 26; i++) printf("=");
     printf(" SCOREBOARD ");
-    for (int i = 0; i < 30; i++) printf("=");
-    printf("\nRANK%10s%10s%49s\n", "ID", "SCORE", "INTRO");
-    for (int i = 0; i <= 72; i++) printf("-");
+    for (int i = 0; i < 26; i++) printf("=");
+    printf("\nRANK%20s%10s%30s\n", "ID", "SCORE", "INTRO");
+    for (int i = 0; i <= 63; i++) printf("-");
     printf("\n");
     
     // sort scoreboard
