@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
-#include<unistd.h>
-#include<termios.h>
+#include <unistd.h>
+#include <termios.h>
 #include "my_page.h"
 
 void gotoxy(int x,int y)
@@ -26,12 +26,11 @@ int getch()
 	tcsetattr(STDIN_FILENO, TCSANOW, &oldattr);  
 	return c;
 }
- 
 
-int my_page(struct user_struct user){
+int my_page(){
 	clear();
 	gotoxy(6,5);
-	printf("Hello %s\n",user.id);
+	printf("Hello\n");
 	gotoxy(6,6);
 	printf(">Start Game\n");
 	gotoxy(6,7);

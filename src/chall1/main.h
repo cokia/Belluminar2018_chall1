@@ -6,5 +6,6 @@
 
 #include <stdio.h>
 #include "my_page.h"
+#include "score.h"
 
 #endif

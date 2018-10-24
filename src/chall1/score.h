@@ -13,14 +13,7 @@ struct rank_struct {
    // change the define order if needed
 };
 
-struct rank_struct scoreboard[54];
-int scoreboard_idx = 0;
-
-int compare_rank (const void *s1, const void *s2){
-    struct rank_struct *r1 = (struct rank_struct *)s1;
-    struct rank_struct *r2 = (struct rank_struct *)s2;
-    return r2->score - r1->score;
-}
+int compare_rank (const void *s1, const void *s2);
 
 void print_scoreboard();
 
