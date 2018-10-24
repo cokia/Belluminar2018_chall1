@@ -6,8 +6,6 @@
 #include <unistd.h>
 #include <termios.h>
 
-#include "users.h"
-
 #define ENTER 10
 #define UP_KEY 65
 #define DOWN_KEY 66
@@ -20,6 +18,6 @@ struct pointer{
 void gotoxy(int x,int y);
 void clear();
 int getch();
-int my_page(struct user_struct user);
+int my_page();
 
 #endif
