@@ -1,7 +1,3 @@
-#include <stdio.h>
-#include <string.h>
-#include <unistd.h>
-#include <termios.h>
 #include "my_page.h"
 
 void gotoxy(int x,int y)
@@ -44,7 +40,6 @@ int my_page(){
 	while(1){
 		int key_rst = getch();
 		gotoxy(1,1);
-		printf("%d",key_rst);
 		if(key_rst == ENTER) return select;	
 		if(key_rst == UP_KEY && select != 1) select-=1;
 		else if(key_rst == DOWN_KEY && select != 2) select+=1;
