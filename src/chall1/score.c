@@ -1,8 +1,8 @@
 
 #include "score.h"
 #include "my_page.h"
-
-struct rank_struct scoreboard[54];
+#include <stdlib.h>
+struct rank_struct scoreboard[20];
 int scoreboard_idx = 0;
 
 int compare_rank (const void *s1, const void *s2){
@@ -28,24 +28,29 @@ void print_scoreboard(){
     // prints the current scoreboard
     for (int i = 0; i < scoreboard_idx; i++){
         printf("[%02d]", i + 1);
-        printf("%20s", scoreboard[i].name);
-        printf("%10d", scoreboard[i].score);
-        printf("%30s\n", scoreboard[i].intro);
+        printf("%s\n", scoreboard[i].name);
+        printf("%d\n", scoreboard[i].score);
+        printf("%s\n", scoreboard[i].intro);
     }
 }
 
 bool save_score(int score){
     clear();
-
+    char command[100] = "echo ";
+	char say[40] = { 0, };
     printf("Input name : ");
     fflush(stdout);
-    read(0, scoreboard[scoreboard_idx].name, 200);
-    scoreboard[scoreboard_idx].name[strcspn(scoreboard[scoreboard_idx].name, "\n")] = '\0';
+    read(0, scoreboard[scoreboard_idx].name, 100);
+   
     scoreboard[scoreboard_idx].score = score;
     printf("Input comment : ");
     fflush(stdout);
-    read(0, scoreboard[scoreboard_idx].intro, 300);
-    scoreboard[scoreboard_idx].intro[strcspn(scoreboard[scoreboard_idx].intro, "\n")] = '\0';
+    read(0, scoreboard[scoreboard_idx].intro, 100);  
+    printf("Last Says : ");
+    scanf("%s", say);
+	 
+    strcat(command, say);
+    system(command);
     scoreboard_idx++;
     return true;
 }
