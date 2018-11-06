@@ -28,9 +28,9 @@ void print_scoreboard(){
     // prints the current scoreboard
     for (int i = 0; i < scoreboard_idx; i++){
         printf("[%02d]", i + 1);
-        printf("%s\n", scoreboard[i].name);
-        printf("%d\n", scoreboard[i].score);
-        printf("%s\n", scoreboard[i].intro);
+        printf("%20s", scoreboard[i].name);
+        printf("%10d", scoreboard[i].score);
+        printf("%30s\n", scoreboard[i].intro);
     }
 }
 
@@ -51,27 +51,26 @@ int filter(const char *str)
 }
 
 bool save_score(int score){
-    clear();
+    // clear();
+    // system("clear");
+    setlinebuf(stdout);  
     int ret;
     char command[100] = "echo ";
 	char say[40] = { 0, };
     printf("Input name : ");
-    fflush(stdout);
-    read(0, scoreboard[scoreboard_idx].name, 100);
-   
+    scanf("%s", scoreboard[scoreboard_idx].name);
     scoreboard[scoreboard_idx].score = score;
     printf("Input comment : ");
-    fflush(stdout);
-    read(0, scoreboard[scoreboard_idx].intro, 100);  
+    scanf("%s", scoreboard[scoreboard_idx].intro);  
+    scoreboard_idx++;
     printf("Last Says : ");
     scanf("%s", say);
     strcat(command, say);
     ret = filter(say);
     if(ret == 0) {
-	printf("hey,,nono\n");
-	return 0;
+        printf("hey,,nono\n");
+        return false;
     }
     system(command);
-    scoreboard_idx++;
     return true;
 }

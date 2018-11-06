@@ -40,7 +40,10 @@ int my_page(){
 	while(1){
 		int key_rst = getch();
 		gotoxy(1,1);
-		if(key_rst == ENTER) return select;	
+		if(key_rst == ENTER){
+			clear();
+			return select;
+		}
 		if(key_rst == UP_KEY && select != 1) select-=1;
 		else if(key_rst == DOWN_KEY && select != 2) select+=1;
 		gotoxy(this_pointer.x,this_pointer.y);
@@ -48,7 +51,6 @@ int my_page(){
 		this_pointer.y = select+5;
 		gotoxy(this_pointer.x,this_pointer.y);
 		printf(">");
-
 	}
 	return 1;
 }
