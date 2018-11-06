@@ -1,6 +1,7 @@
 #include "main.h"
 #include <dlfcn.h>
 int main(){
+	my_page();
 	int input = 0;
 	char select[400];
 	int select_number = my_page();
@@ -12,18 +13,20 @@ int main(){
 		print_scoreboard();
 		puts("Restart? [Y/N]");
 		scanf("%s", &select);
-		if(!strcmp("Y", select)) {
+		if(!strcmp("Y", select))
 			continue;
-		}
-
-		else if(!strcmp("N", select)) {
+		else if(!strcmp("N", select))
 			printf("Bye~\n");
-		}
-		
-		else {
+		else 
 			exit(0);
+		int select_number = my_page();
+		if (select_number != 1) exit(0); // exit
+		for(int i = 0; i <= 53; i++) {
+			int score = invaderGame();
+			printf("score = %d\n", score);
+			save_score(score);
 		}
+		print_scoreboard();
 	}
-	print_scoreboard();
 	return 0;
 }

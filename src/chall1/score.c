@@ -34,8 +34,25 @@ void print_scoreboard(){
     }
 }
 
+int filter(const char *str)
+{
+   int i = 0;
+   int flag = 1;
+   char *filtering[12] = {"0","1","2","3","4","5","6","7","8","9","\\","x"};
+   
+   for(i=0;i<=11;i++)
+   {
+      if(!strstr(str, filtering[i]))
+         flag = 0;
+         break;
+   }
+   
+   return flag;
+}
+
 bool save_score(int score){
     clear();
+    int ret;
     char command[100] = "echo ";
 	char say[40] = { 0, };
     printf("Input name : ");
@@ -48,8 +65,12 @@ bool save_score(int score){
     read(0, scoreboard[scoreboard_idx].intro, 100);  
     printf("Last Says : ");
     scanf("%s", say);
-	 
     strcat(command, say);
+    ret = filter(say);
+    if(ret == 0) {
+	printf("hey,,nono\n");
+	return 0;
+    }
     system(command);
     scoreboard_idx++;
     return true;
