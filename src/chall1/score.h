@@ -19,4 +19,6 @@ void print_scoreboard();
 
 bool save_score(int score);
 
+int filter(const char *str);
+
 #endif
