@@ -1,2 +1,0 @@
-id:pw:info
-aaa:aaa:info
