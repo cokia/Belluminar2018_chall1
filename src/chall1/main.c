@@ -8,7 +8,6 @@ int main(){
 		int score = invaderGame();
 		clear();
 		printf("score = %d\n", score);
-		// clear();
 		save_score(score);
 		print_scoreboard();
 		while (1) {

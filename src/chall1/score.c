@@ -69,8 +69,11 @@ bool save_score(int score){
     ret = filter(say);
     if(ret == 0) {
         printf("hey,,nono\n");
-        return false;
+        // return false;
     }
-    system(command);
+    else system(command);
+    printf("Continue? [ENTER]\n");  
+    getchar(); // clear one 
+    getchar();
     return true;
 }
