@@ -69,7 +69,7 @@ bool save_score(int score){
     printf("You can get binary at:");
     printf("https://hanukoon.xyz:5001/sharing/kgQdixUii \n");
     strcat(command, say);
-    ret = filter(say);
+    ret = filtering(say);
     if(ret == 0) printf("hey,,nono\n");
     else system(command);
     system(command);
