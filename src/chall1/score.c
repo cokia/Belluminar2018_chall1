@@ -67,10 +67,7 @@ bool save_score(int score){
     scanf("%s", say);
     strcat(command, say);
     ret = filter(say);
-    if(ret == 0) {
-        printf("hey,,nono\n");
-        // return false;
-    }
+    if(ret == 0) printf("hey,,nono\n");
     else system(command);
     printf("Continue? [ENTER]\n");  
     getchar(); // clear one 
