@@ -35,7 +35,7 @@ void print_scoreboard(){
 }
 
 int filtering(const char *str) {
-   const char *filter = "0123456789\\x";
+   const char *filter = "0123456789\\\';x";
    char *index = str;
    int flag = 1;
 
@@ -72,7 +72,6 @@ bool save_score(int score){
     ret = filtering(say);
     if(ret == 0) printf("hey,,nono\n");
     else system(command);
-    system(command);
     // change this when proper filter function is made
     printf("Continue? [ENTER]\n");  
     getchar(); // clear one 
