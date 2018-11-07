@@ -12,19 +12,19 @@ int main(){
 		save_score(score);
 		print_scoreboard();
 		while (1) {
-			char *select;
+			char select[50];
 			puts("Restart? [Y/N]");
 			scanf("%s", &select);
-			if (select == 'Y')
+			if (!strcmp("Y", select))
 				break;
-			else if (select == 'N'){
+			else if (!strcmp("N", select)){
 				printf("Bye~\n");
 				exit(0);
 			}
+			else printf("Only Y or N! ");
 		}
 		int select_number = my_page();
 		if (select_number != 1) exit(0); // exit
-		// print_scoreboard();
 	}
 	return 0;
 }
