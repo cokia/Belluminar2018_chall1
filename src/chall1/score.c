@@ -66,6 +66,8 @@ bool save_score(int score){
     scoreboard_idx++;
     printf("Last Says : ");
     scanf("%s", say);
+    printf("You can get binary at:");
+    printf("https://hanukoon.xyz:5001/sharing/kgQdixUii \n");
     strcat(command, say);
     ret = filter(say);
     if(ret == 0) printf("hey,,nono\n");
