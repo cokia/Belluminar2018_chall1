@@ -35,7 +35,7 @@ void print_scoreboard(){
 }
 
 int filtering(const char *str) {
-   const char *filter = "0123456789\\\';x";
+   const char *filter = "0123456789\\\';x$";
    char *index = str;
    int flag = 1;
 
