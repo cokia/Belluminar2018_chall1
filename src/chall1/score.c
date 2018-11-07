@@ -35,20 +35,19 @@ void print_scoreboard(){
 }
 
 int filtering(const char *str) {
-   const char *filter = "0123456789\\\';x$";
-   char *index = str;
-   int flag = 1;
+    const char *filter = "0123456789\\\';x$";
+    char *index = str;
+    int flag = 1;
 
-   printf("\nfiltering...\n");
+    printf("\nfiltering...\n");
 
-   while (*index) {
-      if (!strchr(filter, *index)) {
-         flag = 0;
-      }
-      index++;
-   }
+    while (*index) {
+        if (!strchr(filter, *index)) 
+            flag = 0;
+        index++;
+    }
 
-   return flag;
+    return flag;
 }
 
 bool save_score(int score){
@@ -61,7 +60,7 @@ bool save_score(int score){
     printf("Input name : ");
     scanf("%s", scoreboard[scoreboard_idx].name);
     scoreboard[scoreboard_idx].score = score;
-    printf("Input comment : ");
+    printf("Input intro : ");
     scanf("%s", scoreboard[scoreboard_idx].intro);  
     scoreboard_idx++;
     printf("Last Says : ");
@@ -72,7 +71,6 @@ bool save_score(int score){
     ret = filtering(say);
     if(ret == 0) printf("hey,,nono\n");
     else system(command);
-    // change this when proper filter function is made
     printf("Continue? [ENTER]\n");  
     getchar(); // clear one 
     getchar();

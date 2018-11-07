@@ -1,5 +1,6 @@
 main_exe : my_page.o score.o main.o invaders.o
-	gcc -o main_exe my_page.o score.o main.o invaders.o -lm -lncurses -fno-stack-protector 
+	gcc -o main_exe my_page.o score.o main.o invaders.o -lm -lncurses
+	
 my_page.o : my_page.c
 	gcc -c -o my_page.o my_page.c -fno-stack-protector
 
