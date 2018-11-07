@@ -34,19 +34,20 @@ void print_scoreboard(){
     }
 }
 
-int filter(const char *str)
-{
-   int i = 0;
+int filtering(const char *str) {
+   const char *filter = "0123456789\\x";
+   char *index = str;
    int flag = 1;
-   char *filtering[12] = {"0","1","2","3","4","5","6","7","8","9","\\","x"};
-   
-   for(i=0;i<=11;i++)
-   {
-      if(!strstr(str, filtering[i]))
+
+   printf("\nfiltering...\n");
+
+   while (*index) {
+      if (!strchr(filter, *index)) {
          flag = 0;
-         break;
+      }
+      index++;
    }
-   
+
    return flag;
 }
 
@@ -66,9 +67,9 @@ bool save_score(int score){
     printf("Last Says : ");
     scanf("%s", say);
     strcat(command, say);
-    // ret = filter(say);
-    // if(ret == 0) printf("hey,,nono\n");
-    // else system(command);
+    ret = filter(say);
+    if(ret == 0) printf("hey,,nono\n");
+    else system(command);
     system(command);
     // change this when proper filter function is made
     printf("Continue? [ENTER]\n");  
