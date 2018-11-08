@@ -25,32 +25,14 @@ int getch()
 
 int my_page(){
 	clear();
-	gotoxy(6,5);
-	printf("Hello\n");
-	gotoxy(6,6);
-	printf(">Start Game\n");
-	gotoxy(6,7);
-	printf(" Quit\n");
-	int select = 1;
-	struct pointer this_pointer;
-	this_pointer.x = 6;
-	this_pointer.y = 6;
-
-	gotoxy(this_pointer.x,this_pointer.y);
-	while(1){
-		int key_rst = getch();
-		gotoxy(1,1);
-		if(key_rst == ENTER){
-			clear();
-			return select;
-		}
-		if(key_rst == UP_KEY && select != 1) select-=1;
-		else if(key_rst == DOWN_KEY && select != 2) select+=1;
-		gotoxy(this_pointer.x,this_pointer.y);
-		printf(" ");
-		this_pointer.y = select+5;
-		gotoxy(this_pointer.x,this_pointer.y);
-		printf(">");
+	printf("\tHello~!\n");
+	printf("\t1) Start Game\n");
+	printf("\t2) Quit\n");
+	while (1){
+		printf("> ");
+		int key_rst;
+		scanf("%d", &key_rst);
+		if (key_rst == 1 || key_rst == 2)
+			return key_rst;
 	}
-	return 1;
 }
