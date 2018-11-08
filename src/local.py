@@ -29,9 +29,9 @@ for repeat in range(5):
     print(num, oper)
     ans = num[0]
     for i in range(4):
-        if oper[i] == 1 or oper[i] == 3:
+        if oper[i] in (1, 3):
             ans += num[i+1]
-        elif oper[i] == 0 or oper[i] == 4:
+        elif oper[i] in (0, 4):
             ans -= num[i+1]
         else:
             ans *= num[i+1]
