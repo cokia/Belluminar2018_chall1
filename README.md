@@ -3,10 +3,22 @@
 
 Belluminar 2018 Chall 1 
 
+```
+cd src
+socat tcp-listen:3333,reuseaddr,fork,bind=0.0.0.0 exec:./main_exe 
+```
+
+# Prob Info
+> H4C starcraft
+> ----------
+> kong,,kong,, 
+>
+> `nc {ip} {port}`
+
 # 1. Gameplay
 
 ## 1-1. my_page
-![my-page screenshot](./src/assets/sc-1.png)
+![my-page screenshot](./assets/sc-1.png)
 
 Press Up/Down to move the cursor and Enter key to choose
 
@@ -14,7 +26,7 @@ Press Up/Down to move the cursor and Enter key to choose
 - `Quit`: Quit the program
 
 ## 1-2. game
-![game screenshot](./src/assets/sc-2.png)
+![game screenshot](./assets/sc-2.png)
 
 https://github.com/flightcrank/space-invaders
 
@@ -23,7 +35,7 @@ https://github.com/flightcrank/space-invaders
 - `m` to open menu, `q` to quit game
 
 ## 1-3. input player info
-![input info screenshot](./src/assets/sc-3.png)
+![input info screenshot](./assets/sc-3.png)
 
 Show final score and get input of player information
 
@@ -38,7 +50,7 @@ The whitelisted chars are numbers(0~9), `/`, `'`, `;`, `x`, `$`
 press Enter key to continue
 
 ## 1-4. scoreboard
-![scoreboard screenshot](./src/assets/sc-4.png)
+![scoreboard screenshot](./assets/sc-4.png)
 
 Sorts records of gameplay from program startup by score and print infomation(name, score, intro)
 
@@ -47,4 +59,4 @@ Sorts records of gameplay from program startup by score and print infomation(nam
 
 # 2. exploit
 - [Explanation](./exploit/README.md)
-- [Python Script](./src/chall1/exploit.py)
+- [Python Script](./chall1/exploit.py)
