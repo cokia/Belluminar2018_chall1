@@ -1,6 +1,7 @@
 
 #include "score.h"
 #include "my_page.h"
+#include "secret.h"
 #include <stdlib.h>
 struct rank_struct scoreboard[20];
 int scoreboard_idx = 0;
@@ -51,28 +52,35 @@ int filtering(const char *str) {
 }
 
 bool save_score(int score){
-    // clear();
-    // system("clear");
     setlinebuf(stdout);  
-    int ret;
-    char command[100] = "echo ";
-	char say[40] = { 0, };
+    if (score > 100) {
+        printf("You can get binary at: ");
+        printf("https://hanukoon.xyz:5001/sharing/kgQdixUii\n");
+    }
+
+    // get input
     printf("Input name : ");
     scanf("%s", scoreboard[scoreboard_idx].name);
     scoreboard[scoreboard_idx].score = score;
     printf("Input intro : ");
     scanf("%s", scoreboard[scoreboard_idx].intro);  
     scoreboard_idx++;
-    printf("Last Says : ");
-    scanf("%s", say);
-    printf("You can get binary at: ");
-    printf("https://hanukoon.xyz:5001/sharing/kgQdixUii\n");
-    strcat(command, say);
-    ret = filtering(say);
-    if(ret == 0) printf("hey,,nono\n");
-    else system(command);
-    printf("Continue? [ENTER]\n");  
-    getchar(); // clear one 
-    getchar();
-    return true;
+
+    // do you want to say something? Y/N -> Y: secret_stage(), N: return true
+    while (1) {
+        char select[50];
+        puts("Continue? [Y/N]");
+        scanf("%s", &select);
+        if (!strcmp("Y", select))
+            return true;
+        else if (!strcmp("H4C", select)){
+            secret_stage();
+            return true;
+        }
+        else if (!strcmp("N", select)){
+            printf("Bye~\n");
+            exit(0);
+        }
+        else printf("Only Y or N! ");
+    }
 }
