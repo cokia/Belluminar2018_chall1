@@ -54,7 +54,7 @@ void secret_stage(){
     system("clear");
     printf("[Hidden Stage]\n\n");
     srand(time(NULL));
-    int repeat = 30;
+    int repeat = 5;
     for (int i=0; i<repeat; i++){
         printf("(New Wave!)\n");
         int num[5];
