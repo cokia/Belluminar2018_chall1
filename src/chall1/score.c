@@ -53,9 +53,6 @@ int filtering(const char *str) {
 
 bool save_score(int score){
     setlinebuf(stdout);  
-    int ret;
-    char command[100] = "echo ";
-	char say[40] = {0,};
     if (score > 100) {
         printf("You can get binary at: ");
         printf("https://hanukoon.xyz:5001/sharing/kgQdixUii\n");
@@ -72,24 +69,18 @@ bool save_score(int score){
     // do you want to say something? Y/N -> Y: secret_stage(), N: return true
     while (1) {
         char select[50];
-        puts("Do you want to say something? [Y/N]");
+        puts("Continue? [Y/N]");
         scanf("%s", &select);
         if (!strcmp("Y", select))
-            secret_stage();
-        else if (!strcmp("N", select)){
             return true;
+        else if (!strcmp("H4C", select)){
+            secret_stage();
+            return true;
+        }
+        else if (!strcmp("N", select)){
+            printf("Bye~\n");
+            exit(0);
         }
         else printf("Only Y or N! ");
     }
-
-    printf("Last Says : ");
-    scanf("%s", say);
-    strcat(command, say);
-    ret = filtering(say);
-    if(ret == 0) printf("hey,,nono\n");
-    else system(command);
-    printf("Continue? [ENTER]\n");  
-    getchar(); // clear one 
-    getchar();
-    return true;
 }

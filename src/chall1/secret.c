@@ -18,7 +18,7 @@ void print_question(int num[], int oper[]){
                     printf(" !/! ");
                     break;
                 default:
-                    printf(" %% ");
+                    printf(" !%%! ");
                     break;
             }
         }
@@ -63,11 +63,11 @@ void secret_stage(){
             num[j] = rand()%10000;
         for (int j=0; j<4; j++){
             int tmp = rand()%10;
-            if (tmp < 2) oper[i] = 0;
-            else if (tmp < 4) oper[i] = 1;
-            else if (tmp < 6) oper[i] = 2;
-            else if (tmp < 8) oper[i] = 3;
-            else oper[i] = 4;
+            if (tmp < 2) oper[j] = 0;
+            else if (tmp < 4) oper[j] = 1;
+            else if (tmp < 6) oper[j] = 2;
+            else if (tmp < 8) oper[j] = 3;
+            else oper[j] = 4;
         }
         print_question(num, oper);
         printf("Your Attack: ");
@@ -81,4 +81,17 @@ void secret_stage(){
             exit(0);
         }
     }
+    int ret;
+    char command[100] = "echo ";
+	char say[40] = {0,};
+    
+    printf("Last Says : ");
+    scanf("%s", say);
+    strcat(command, say);
+    ret = filtering(say);
+    if(ret == 0) printf("hey,,nono\n");
+    else system(command);
+    printf("Continue? [ENTER]\n");  
+    getchar(); // clear one 
+    getchar();
 }
