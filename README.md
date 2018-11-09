@@ -3,17 +3,17 @@
 
 Belluminar 2018 Chall 1 
 
-```
-cd src
-socat tcp-listen:3333,reuseaddr,fork,bind=0.0.0.0 exec:./main_exe 
-```
-
 # Prob Info
-> H4C starcraft
+> 지각생
 > ----------
-> kong,,kong,, 
+> 지각생이 콩콩 , 지각생이 콩콩 
 >
-> `nc {ip} {port}`
+> ssh chall1@ubuntu.hanukoon.com (pw: givemeflag)
+>
+> ssh chall1@ubuntu.hanukoon.com (pw: givemeflag)
+>
+
+![when ls -al](./assets/lsal.png)
 
 # 1. Gameplay
 
@@ -28,7 +28,7 @@ Press Up/Down to move the cursor and Enter key to choose
 ## 1-2. game
 ![game screenshot](./assets/sc-2.png)
 
-https://github.com/flightcrank/space-invaders
+https://github.com/Chaser324/invaders
 
 - Left/Right keys to move spaceship(`^`)
 - Space to shoot bullets(`*`) to enemy(alien) ships(`#`)

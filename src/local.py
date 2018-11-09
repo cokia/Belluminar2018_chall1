@@ -22,16 +22,16 @@ for repeat in range(5):
     num = []
     oper = []
     for idx, this in enumerate(q.split(' ')):
-        if idx%2!=0: # operater
-            oper.append({'+':0, '-':1, '*':2, '/':3, '%':4}[this])
+        if idx%2 != 0: # operater
+            oper.append(this)
         else: # num
             num.append(int(this))
     print(num, oper)
     ans = num[0]
     for i in range(4):
-        if oper[i] in (1, 3):
+        if oper[i] in ('-', '/'):
             ans += num[i+1]
-        elif oper[i] in (0, 4):
+        elif oper[i] in ('+', '%'):
             ans -= num[i+1]
         else:
             ans *= num[i+1]
