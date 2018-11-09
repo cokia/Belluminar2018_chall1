@@ -59,4 +59,4 @@ Sorts records of gameplay from program startup by score and print infomation(nam
 
 # 2. exploit
 - [Explanation](./exploit/README.md)
-- [Python Script](./chall1/exploit.py)
+- [Python Script](./src/exploit.py)
