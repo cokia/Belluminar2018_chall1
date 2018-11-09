@@ -9,7 +9,7 @@ socat tcp-listen:3333,reuseaddr,fork,bind=0.0.0.0 exec:./main_exe
 ```
 
 # Prob Info
-> H4C starcraft
+> H4C Late Student
 > ----------
 > kong,,kong,, 
 >
